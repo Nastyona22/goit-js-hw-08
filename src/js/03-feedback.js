@@ -43,9 +43,14 @@ const handleSubmit = event => {
     const {
         elements: { email, message },
     } = event.currentTarget;
-    console.log({ email: email.value, message: message.value });
-    event.currentTarget.reset();
-    remove(LOCAL_STORAGE_KEY);
+    if (email.value && message.value) {
+         console.log({ email: email.value, message: message.value });
+        event.currentTarget.reset();
+        remove(LOCAL_STORAGE_KEY);
+    } else {
+        alert('Please fill in both form fields');
+    }
+   
 }
     
 formRef.addEventListener('submit', handleSubmit);

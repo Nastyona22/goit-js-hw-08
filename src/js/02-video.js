@@ -19,6 +19,9 @@ player.on('timeupdate', throttle(onPlay,1000));
 const currentTime = load(LOCAL_STORAGE_KEY);
 
 function resumeFromStop() {
-    player.setCurrentTime(currentTime)
+    
+    if (currentTime) {
+        player.setCurrentTime(currentTime);
+    }
 }
 player.on('play', resumeFromStop);
